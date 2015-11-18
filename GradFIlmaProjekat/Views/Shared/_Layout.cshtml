@@ -7,9 +7,9 @@
 <meta name="author" content="">
 <title>Grad filma</title>
 <!-- Bootstrap Core CSS -->
-<link href="Content/css/bootstrap.min.css" rel="stylesheet">
+<link href="Content/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="Content/css/agency.css" rel="stylesheet">
+<link href="Content/agency.css" rel="stylesheet">
 <!-- Custom Fonts -->
 <link href="fonts-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -22,8 +22,9 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-    @*@Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")*@
+    @*mora ostat ukljuceno zbog logina*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body id="page-top" class="index">
@@ -61,7 +62,11 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
+                    <li><a class="page-scroll" href="#"></a> </li>
+                    <li><a class="page-scroll" href="#"></a></li>
+                    @Html.Partial("_LoginPartial")
                 </ul>
+            
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -130,7 +135,7 @@
     <script src="Scripts/js/agency.js"></script>
     @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")*@
-    @*@RenderSection("scripts", required: false)*@
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>
