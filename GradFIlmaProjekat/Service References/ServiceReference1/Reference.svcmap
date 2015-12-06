@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9a3480ed-b1a5-477b-8db3-4925fbda5c1c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:18578/ServiceGradFilma.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceGradFilma.xsd" MetadataType="Schema" ID="808290da-7492-4cb5-bfbc-fb53860fb1cb" SourceId="1" SourceUrl="http://localhost:18578/ServiceGradFilma.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceGradFilma1.xsd" MetadataType="Schema" ID="db5bd37d-9a25-44cf-811a-999b1cc2119e" SourceId="1" SourceUrl="http://localhost:18578/ServiceGradFilma.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceGradFilma.disco" MetadataType="Disco" ID="8858276a-9ede-422a-8736-2348579d623c" SourceId="1" SourceUrl="http://localhost:18578/ServiceGradFilma.svc?disco" />
+    <MetadataFile FileName="ServiceGradFilma2.xsd" MetadataType="Schema" ID="5acd8af5-adcc-4276-b88d-86c32b946cb4" SourceId="1" SourceUrl="http://localhost:18578/ServiceGradFilma.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceGradFilma.wsdl" MetadataType="Wsdl" ID="7be07d81-8435-4262-b35c-18af2df79ae4" SourceId="1" SourceUrl="http://localhost:18578/ServiceGradFilma.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
