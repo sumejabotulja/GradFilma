@@ -14,7 +14,7 @@ namespace GradFilmaService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class ServiceGradFilma : IGradFilmaService
     {
-      
+
         public GradFilmaModel.Korisnik Login(GradFilmaModel.Korisnik korisnik)
         {
             //enkripcija passworda?
@@ -35,6 +35,19 @@ namespace GradFilmaService
         }
 
         public void Register(GradFilmaModel.Korisnik korisnik)
-        { }
+        {
+            string ime, prezime, jmbg, adresa, tel, email, sifra;
+/*            Korisnik k = new Korisnik(ime, prezime, jmbg, adresa, tel, email, sifra);
+
+            using (var db = new GradFilmaEntities())
+            {
+                db.Korisnik.Add(korisnik);
+                db.SaveChanges();
+            }
+
+            */
+
+        }
+
     }
 }

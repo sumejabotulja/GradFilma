@@ -20,6 +20,10 @@ namespace GradFilmaService
         [OperationContract]
         void Register(Korisnik korisnik);
 
+
+//        [OperationContract]
+  //      void Register_Uposlenik(Uposlenik uposlenik);
+
         //isto i za uposlenika
     }
 
