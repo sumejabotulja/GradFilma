@@ -92,6 +92,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GradFilmaDatabase\GradFilmaDatabase.sqlproj">
+      <Project>{0b571849-3cda-4b2c-aecd-2aad6dcf3fd6}</Project>
+      <Name>GradFilmaDatabase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GradFilmaEntity\GradFilmaEntity.csproj">
       <Project>{3a6eef35-2be2-42b8-8f48-0d2f276a1f60}</Project>
       <Name>GradFilmaEntity</Name>
@@ -100,6 +104,9 @@
       <Project>{f54d0e1b-f763-4f54-b999-51daea0b3d5d}</Project>
       <Name>GradFilmaModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
