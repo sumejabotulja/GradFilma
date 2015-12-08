@@ -19,7 +19,7 @@ namespace GradFilmaService
         {
             //enkripcija passworda?
             var ctx = new GradFilmaEntities();
-            var kor = ctx.Korisniks.FirstOrDefault(k => k.username == korisnik.Username & k.password == korisnik.Password);
+            var kor = ctx.Korisniks.FirstOrDefault(k => k.username == korisnik.Username & k.password == korisnik.ConfirmPassword);
 
             if (kor == null)
             {

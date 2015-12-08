@@ -31,6 +31,9 @@ namespace GradFilmaModel
 
         [DataMember]
         public string Password { get; set; }
+
+        public string ConfirmPassword { get; set; }
+
         public Korisnik() { }
 
         public Korisnik(string i, string pr, string j, string a, string t,string u,string p )

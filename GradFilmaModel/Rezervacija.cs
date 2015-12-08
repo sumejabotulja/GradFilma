@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+
 namespace GradFilmaModel
-{   [DataContract]
+{   
+    [DataContract]
    public class Rezervacija
     {
        
