@@ -19,6 +19,7 @@ namespace GradFilmaService
         {
             //enkripcija passworda?
             var ctx = new GradFilmaEntities();
+
             var kor = ctx.Korisniks.FirstOrDefault(k => k.username == korisnik.Username & k.password == korisnik.Password);
 
             if (kor == null)
@@ -36,16 +37,37 @@ namespace GradFilmaService
 
         public void Register(GradFilmaModel.Korisnik korisnik)
         {
-            string ime, prezime, jmbg, adresa, tel, email, sifra;
-/*            Korisnik k = new Korisnik(ime, prezime, jmbg, adresa, tel, email, sifra);
 
-            using (var db = new GradFilmaEntities())
+            using (var ctx = new GradFilmaEntities())
             {
-                db.Korisnik.Add(korisnik);
-                db.SaveChanges();
-            }
 
-            */
+                var kor = ctx.Korisniks.FirstOrDefault(k => k.username == korisnik.Username);
+
+
+                if (kor != null)
+                {
+                    throw new Exception("Postoji korisnik sa tim imenom");
+                }
+
+                //Praksa2014.Data.Model.Type userType = GetUserType("User", ctx);
+
+                kor = new GradFilmaEntity.Korisnik()
+                {
+                    idKorisnik = '3',
+                    ime = korisnik.Username,
+                    prezime = korisnik.Username,
+                    jmbg = korisnik.Username,
+                    telefon = korisnik.Username,
+                    adresa = korisnik.Username,
+                    username = korisnik.Username,
+                    password = korisnik.Password,
+                    
+                };
+
+                ctx.Korisniks.Add(kor);
+
+                ctx.SaveChanges();
+            }
 
         }
 

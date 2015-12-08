@@ -177,7 +177,7 @@
     <Compile Include="Models\Mail.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\ServiceGradFilma\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -260,6 +260,7 @@
     <Content Include="less\agency.less" />
     <Content Include="less\mixins.less" />
     <Content Include="less\variables.less" />
+    <Content Include="Properties\DataSources\GradFilmaModel.Korisnik.datasource" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -281,10 +282,10 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <None Include="Service References\ServiceReference1\ServiceGradFilma.disco" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\ServiceGradFilma\ServiceGradFilma.disco" />
+    <None Include="Service References\ServiceGradFilma\configuration91.svcinfo" />
+    <None Include="Service References\ServiceGradFilma\configuration.svcinfo" />
+    <None Include="Service References\ServiceGradFilma\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -321,14 +322,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <None Include="Service References\ServiceReference1\ServiceGradFilma.wsdl" />
-    <None Include="Service References\ServiceReference1\ServiceGradFilma.xsd">
+    <None Include="Service References\ServiceGradFilma\ServiceGradFilma.wsdl" />
+    <None Include="Service References\ServiceGradFilma\ServiceGradFilma.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\ServiceGradFilma1.xsd">
+    <None Include="Service References\ServiceGradFilma\ServiceGradFilma1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\ServiceGradFilma2.xsd">
+    <None Include="Service References\ServiceGradFilma\ServiceGradFilma2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -358,13 +359,9 @@
       <Project>{f54d0e1b-f763-4f54-b999-51daea0b3d5d}</Project>
       <Name>GradFilmaModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GradFilmaService\GradFilmaService.csproj">
-      <Project>{390ed6e4-2e38-4a78-8289-65ac8e762d29}</Project>
-      <Name>GradFilmaService</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\ServiceGradFilma\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

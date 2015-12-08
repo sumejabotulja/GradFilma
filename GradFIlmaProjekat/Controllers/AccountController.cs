@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GradFIlmaProjekat.Models;
 using GradFIlmaProjekat;
+using System.Web.Security;
+using GradFilmaModel;
 
 namespace WebApplication3.Controllers
 {
@@ -53,6 +55,15 @@ namespace WebApplication3.Controllers
             }
         }
 
+        public void SignIn(string userName, bool createPersistentCookie)
+        {
+            int timeout = createPersistentCookie ? 43200 : 30; //43200 = 1 month
+            var ticket = new FormsAuthenticationTicket(userName, createPersistentCookie, timeout);
+            string encrypted = FormsAuthentication.Encrypt(ticket);
+            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
+            cookie.Expires = System.DateTime.Now.AddMinutes(timeout);
+            System.Web.HttpContext.Current.Response.Cookies.Add(cookie);
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -61,6 +72,9 @@ namespace WebApplication3.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+        
+        
+
 
         //
         // POST: /Account/Login
@@ -69,27 +83,37 @@ namespace WebApplication3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
-            }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                var client = new GradFIlmaProjekat.ServiceGradFilma.GradFilmaServiceClient();
+             
+                GradFilmaModel.Korisnik korisnik = new GradFilmaModel.Korisnik();
+                korisnik.Username = model.Email;
+                korisnik.Password = model.Password;
+
+                if (client.Login(korisnik) != null)
+                {
+                    client.Close();
+                    SignIn(korisnik.Username, true);
+                    var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                    switch (result)
+                    {
+                        case SignInStatus.Success:
+                            return RedirectToLocal(returnUrl);
+                        case SignInStatus.LockedOut:
+                            return View("Lockout");
+                        case SignInStatus.RequiresVerification:
+                            return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                        case SignInStatus.Failure:
+                        default:
+                            ModelState.AddModelError("", "Invalid login attempt.");
+                            return View(model);
+                    }
+                   
+                }
             }
+            return View(model);
         }
 
         //
@@ -152,10 +176,19 @@ namespace WebApplication3.Controllers
         {
             if (ModelState.IsValid)
             {
+                var client = new GradFIlmaProjekat.ServiceGradFilma.GradFilmaServiceClient();
+
+                GradFilmaModel.Korisnik korisnik = new GradFilmaModel.Korisnik();
+                korisnik.Username = model.Email;
+                korisnik.Password = model.Password;
+                client.Register(korisnik);
+
+                client.Close();
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //var client=new 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
